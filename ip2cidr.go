@@ -27,11 +27,11 @@ func IPRangeToCIDR(start, end string) ([]string, error) {
 
    startAddr, err := ipToLong(start)
    if err != nil {
-      log.Fatalf(err.Error())
+      return []string{}, err
    }
    endAddr, err := ipToLong(end)
    if err != nil {
-      log.Fatalf(err.Error())
+      return []string{}, err
    }
 
    if startAddr > endAddr {
